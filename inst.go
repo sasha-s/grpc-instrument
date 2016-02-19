@@ -63,8 +63,11 @@ func ServiceDesc(
 		HandlerType: inter,
 		Streams:     []grpc.StreamDesc{},
 	}
-	for i := 0; i < implType.NumMethod(); i++ {
-		method := implType.Method(i)
+	for i := 0; i < interType.NumMethod(); i++ {
+		method, ok := implType.MethodByName(interType.Method(i).Name)
+		if !ok {
+			return nil, fmt.Errorf("method %s not found in %s", interType.Method(i).Name, implType)
+		}
 		if method.Type.NumIn() != 3 || method.Type.NumOut() != 2 {
 			return nil, fmt.Errorf("unexpected function signature %s", method.Type)
 		}
