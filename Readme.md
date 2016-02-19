@@ -17,7 +17,8 @@ s.RegisterService(Must("adder.Adder",
     func(sn, method string, took time.Duration, err error) {
 	    log.Println(sn, method, took, err)
     }),
-    impl)```
+    impl)
+```
 
 instead of
 
@@ -26,4 +27,13 @@ instead of
 		adder.RegisterAdderServer(s, impl)
 ```
 
+## Benchmarks
 
+```
+PASS
+BenchmarkInstrumented-8	   20000	     95334 ns/op
+BenchmarkDirect-8      	   20000	     97192 ns/op
+ok  	github.com/sasha-s/grpc-instrument	5.807s
+```
+
+Adds about 2% overhead when both server and client are on the same machine the the method in question is almost NOP (adding two numbers). In reality the overhead should be negligible.
