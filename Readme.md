@@ -27,6 +27,9 @@ instead of
     adder.RegisterAdderServer(s, impl)
 ```
 
+## Limitations
+Does not support streaming RPC (yet).
+
 ## Benchmarks
 
 ```
