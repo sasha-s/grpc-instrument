@@ -24,7 +24,7 @@ instead of
 
 ```
 ...
-		adder.RegisterAdderServer(s, impl)
+    adder.RegisterAdderServer(s, impl)
 ```
 
 ## Benchmarks
