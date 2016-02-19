@@ -11,7 +11,7 @@ Reflection.
 ```go
 s := grpc.NewServer()
 impl := adder.Impl{}
-s.RegisterService(Must("adder.Adder",
+s.RegisterService(instr.Must("adder.Adder",
     (*adder.AdderServer)(nil),
     impl,
     func(sn, method string, took time.Duration, err error) {

@@ -15,7 +15,7 @@ import (
 // Panics on errors.
 // Sample usage:
 // s := grpc.NewServer()
-// s.RegisterService(Must("adder.Adder",
+// s.RegisterService(instr.Must("adder.Adder",
 //     (*adder.AdderServer)(nil),
 //     impl,
 //     func(sn, method string, took time.Duration, err error) {
