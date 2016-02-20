@@ -1,0 +1,30 @@
+// find . -name "*.proto" | xargs protoc --go_out=plugins=grpc:.
+
+syntax = "proto3";
+
+package adder;
+
+service Adder {
+  rpc Add (AddRequest) returns (AddReply) {}
+  rpc Add2 (Add2Request) returns (Add2Reply) {}
+}
+
+
+message AddRequest {
+	int32 a = 1;
+	int32 b = 2;
+}
+
+message AddReply {
+	int32 r = 1;
+}
+
+message Add2Request {
+	int32 a = 1;
+	int32 b = 2;
+}
+
+message Add2Reply {
+	int32 r = 1;
+}
+
