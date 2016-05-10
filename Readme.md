@@ -1,3 +1,7 @@
+# DEPRECATED
+
+Use [grpc.UnaryServerInterceptor](https://godoc.org/google.golang.org/grpc#UnaryServerInterceptor) and friends instead.
+
 # Server-side Instrumentation hooks for golang GRPC.
 
 ## Why?
